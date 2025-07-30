@@ -298,9 +298,9 @@ export function ProfitabilityCharts() {
                 <Line
                   type="monotone"
                   dataKey="margen"
-                  stroke="var(--color-margen)"
+                  stroke="var(--color-chart-5)"
                   strokeWidth={2}
-                  dot={{ fill: "var(--color-margen)" }}
+                  dot={{ fill: "var(--color-chart-5)" }}
                 />
               </LineChart>
             </ResponsiveContainer>
