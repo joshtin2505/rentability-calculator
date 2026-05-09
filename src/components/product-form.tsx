@@ -12,6 +12,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Switch } from "@/components/ui/switch"
 import { Badge } from "@/components/ui/badge"
 import { Plus, Trash2, Calculator } from "lucide-react"
+import { InfoTooltip } from "@/components/info-tooltip"
 
 export function ProductForm() {
   const { products, generalData, addProduct, removeProduct } = useAppStore()
@@ -117,7 +118,10 @@ export function ProductForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="materialCost">Costo Materiales ($) *</Label>
+              <Label htmlFor="materialCost" className="flex items-center">
+                Costo Materiales ($) * 
+                <InfoTooltip content="Costo directo de los insumos físicos necesarios para fabricar una sola unidad del producto." />
+              </Label>
               <Input
                 id="materialCost"
                 type="number"
@@ -129,7 +133,10 @@ export function ProductForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="productionPerHour">Producción por Hora *</Label>
+              <Label htmlFor="productionPerHour" className="flex items-center">
+                Producción por Hora *
+                <InfoTooltip content="Cantidad de unidades que se pueden fabricar en una hora de trabajo por una sola persona o unidad de mano de obra." />
+              </Label>
               <Input
                 id="productionPerHour"
                 type="number"
@@ -141,7 +148,10 @@ export function ProductForm() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="monthlyProduction">Producción Mensual *</Label>
+              <Label htmlFor="monthlyProduction" className="flex items-center">
+                Producción Mensual *
+                <InfoTooltip content="Cantidad de unidades que esperas producir y vender en un mes normal." />
+              </Label>
               <Input
                 id="monthlyProduction"
                 type="number"
@@ -193,7 +203,10 @@ export function ProductForm() {
 
             {formData.usePriceByMargin ? (
               <div className="space-y-2">
-                <Label htmlFor="contributionMargin">Margen de Contribución Deseado (%) *</Label>
+                <Label htmlFor="contributionMargin" className="flex items-center">
+                  Margen de Contribución Deseado (%) *
+                  <InfoTooltip content="Porcentaje del precio de venta que sirve para cubrir los costos fijos y generar ganancia." />
+                </Label>
                 <Input
                   id="contributionMargin"
                   type="number"
@@ -215,7 +228,10 @@ export function ProductForm() {
               </div>
             ) : (
               <div className="space-y-2">
-                <Label htmlFor="salePrice">Precio de Venta Fijo ($) *</Label>
+                <Label htmlFor="salePrice" className="flex items-center">
+                  Precio de Venta Fijo ($) *
+                  <InfoTooltip content="El precio final al que venderás el producto al cliente." />
+                </Label>
                 <Input
                   id="salePrice"
                   type="number"

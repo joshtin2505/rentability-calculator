@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import { Download, Calculator } from "lucide-react"
+import { InfoTooltip } from "@/components/info-tooltip"
 
 export function ResultsDashboard() {
   const { products, generalData, calculationResult, setCalculationResult } = useAppStore()
@@ -93,7 +94,10 @@ export function ResultsDashboard() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Ingresos Mensuales</CardTitle>
+                <CardTitle className="text-sm font-medium flex items-center justify-between">
+                  Ingresos Mensuales
+                  <InfoTooltip content="Dinero total que entra por las ventas proyectadas de todos los productos." />
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-green-600">
@@ -104,7 +108,10 @@ export function ResultsDashboard() {
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Costos Mensuales</CardTitle>
+                <CardTitle className="text-sm font-medium flex items-center justify-between">
+                  Costos Mensuales
+                  <InfoTooltip content="Suma de todos los costos (directos y fijos) de todos los productos al mes." />
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="text-2xl font-bold text-red-600">
@@ -115,7 +122,10 @@ export function ResultsDashboard() {
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Utilidad Mensual</CardTitle>
+                <CardTitle className="text-sm font-medium flex items-center justify-between">
+                  Utilidad Mensual
+                  <InfoTooltip content="Ganancia neta total que queda después de pagar todos los costos." />
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div
@@ -128,7 +138,10 @@ export function ResultsDashboard() {
 
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle className="text-sm font-medium">Margen Promedio</CardTitle>
+                <CardTitle className="text-sm font-medium flex items-center justify-between">
+                  Margen Promedio
+                  <InfoTooltip content="Porcentaje promedio de ganancia por cada producto vendido." />
+                </CardTitle>
               </CardHeader>
               <CardContent>
                 <div
@@ -151,15 +164,15 @@ export function ResultsDashboard() {
                   <TableHeader>
                     <TableRow>
                       <TableHead>Producto</TableHead>
-                      <TableHead className="text-right">Costo M.O./Unidad</TableHead>
-                      <TableHead className="text-right">Costo Directo</TableHead>
-                      <TableHead className="text-right">Costo Fijo/Unidad</TableHead>
-                      <TableHead className="text-right">Costo Total/Unidad</TableHead>
-                      <TableHead className="text-right">Precio Venta</TableHead>
-                      <TableHead className="text-right">Utilidad/Unidad</TableHead>
-                      <TableHead className="text-right">Margen %</TableHead>
-                      <TableHead className="text-right">Utilidad Mensual</TableHead>
-                      <TableHead>Rentabilidad</TableHead>
+                      <TableHead className="text-right whitespace-nowrap">Costo M.O./Unidad <InfoTooltip content="Mano de Obra: Cuánto cuesta el tiempo del trabajador usado en una sola unidad." /></TableHead>
+                      <TableHead className="text-right whitespace-nowrap">Costo Directo <InfoTooltip content="Materiales + Mano de Obra. Gastos que van directamente al producto." /></TableHead>
+                      <TableHead className="text-right whitespace-nowrap">Costo Fijo/Unidad <InfoTooltip content="Qué porción del costo fijo mensual (ej. arriendo) le toca cubrir a este producto." /></TableHead>
+                      <TableHead className="text-right whitespace-nowrap">Costo Total/Unidad <InfoTooltip content="Costo Directo + Costo Fijo unitario." /></TableHead>
+                      <TableHead className="text-right whitespace-nowrap">Precio Venta <InfoTooltip content="Precio final de venta al público." /></TableHead>
+                      <TableHead className="text-right whitespace-nowrap">Utilidad/Unidad <InfoTooltip content="Beneficio neto en dinero por unidad vendida." /></TableHead>
+                      <TableHead className="text-right whitespace-nowrap">Margen % <InfoTooltip content="Porcentaje del precio final que representa tu utilidad neta." /></TableHead>
+                      <TableHead className="text-right whitespace-nowrap">Utilidad Mensual <InfoTooltip content="Ganancia generada por toda la producción mensual." /></TableHead>
+                      <TableHead className="whitespace-nowrap">Rentabilidad <InfoTooltip content="Calificación de tu margen (Excelente >30%, Buena >15%, Baja <15%)." /></TableHead>
                     </TableRow>
                   </TableHeader>
                   <TableBody>

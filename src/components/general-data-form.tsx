@@ -8,6 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Plus, Trash2 } from "lucide-react"
+import { InfoTooltip } from "@/components/info-tooltip"
 
 export function GeneralDataForm() {
   const { generalData, setGeneralData, addFixedCost, updateFixedCost, removeFixedCost } = useAppStore()
@@ -52,7 +53,10 @@ export function GeneralDataForm() {
       </CardHeader>
       <CardContent className="space-y-6">
         <div className="space-y-2">
-          <Label htmlFor="laborCost">Costo Mano de Obra por Hora ($)</Label>
+          <Label htmlFor="laborCost" className="flex items-center">
+            Costo Mano de Obra por Hora ($)
+            <InfoTooltip content="Lo que cuesta una hora de trabajo de la persona que fabrica los productos." />
+          </Label>
           <Input
             id="laborCost"
             type="number"
@@ -65,7 +69,10 @@ export function GeneralDataForm() {
 
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h3 className="text-lg font-semibold">Costos Fijos Mensuales</h3>
+            <h3 className="text-lg font-semibold flex items-center">
+              Costos Fijos Mensuales
+              <InfoTooltip content="Gastos que debes pagar cada mes sin importar cuánto vendas (ej: arriendo, servicios, internet)." />
+            </h3>
             <div className="flex gap-2">
               <Input
                 placeholder="Nombre del costo"
