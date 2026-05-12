@@ -26,7 +26,7 @@ export function ProductForm() {
     usePriceByMargin: false,
   })
 
-  const [calculatedCosts, setCalculatedCosts] = useState<any>(null)
+  const [calculatedCosts, setCalculatedCosts] = useState<ReturnType<typeof calculateProductCosts> | null>(null)
 
   const totalMonthlyProduction = products.reduce((sum, product) => sum + product.monthlyProduction, 0)
 

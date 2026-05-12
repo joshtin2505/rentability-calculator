@@ -65,10 +65,6 @@ export function ProfitabilityCharts() {
     fixedCostPerUnit: number;
   }
 
-  interface CalculationResult {
-    products: Product[];
-  }
-
   const barChartData: BarChartProduct[] = calculationResult.products.map(
     (product: Product) => ({
       name:

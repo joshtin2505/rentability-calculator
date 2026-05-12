@@ -19,7 +19,7 @@ interface AppState {
 
 export const useAppStore = create<AppState>()(
   persist(
-    (set, get) => ({
+    (set) => ({
       products: [],
       generalData: {
         laborCostPerHour: 0,
